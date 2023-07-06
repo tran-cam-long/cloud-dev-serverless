@@ -11,7 +11,7 @@ const logger = createLogger('TodosAccess');
 const attachmentUtils = new AttachmentUtils();
 const todosAccess = new TodosAccess();
 
-// Implement create todo feature
+// Implement create todos feature
 export async function createTodo(
     newTodo: CreateTodoRequest,
     userId: string
@@ -33,4 +33,14 @@ export async function createTodo(
 
   logger.info(`End createTodo with result: ${createdTodo}`);
   return createdTodo;
+}
+
+// Implement get todos feature
+export async function getAllTodos(userId: string): Promise<TodoItem[]> {
+  logger.info(`Start getAllTodos with userId: ${userId}`);
+
+  const todosList = await todosAccess.getAllTodos(userId);
+
+  logger.info(`End getAllTodos with userId: ${userId}`);
+  return todosList;
 }
