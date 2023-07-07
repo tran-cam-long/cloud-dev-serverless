@@ -27,7 +27,7 @@ export class TodosAccess {
             IndexName: this.todosIndex,
             KeyConditionExpression: 'userId = :userId',
             ExpressionAttributeValues: {
-                'userId': userId
+                ':userId': userId
             }
         }).promise();
 

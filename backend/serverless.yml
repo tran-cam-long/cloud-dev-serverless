@@ -62,10 +62,10 @@ functions:
     handler: src/lambda/http/getTodos.handler
     events:
       - http:
-        method: get
-        path: todos
-        cors: true
-        authorizer: Auth
+          method: get
+          path: todos
+          cors: true
+          authorizer: Auth
     iamRoleStatementsName: ${self:provider.environment.PROJECT_NAME}-get-todo-role-${self:provider.stage}
     iamRoleStatements:
       - Effect: Allow
@@ -90,7 +90,7 @@ functions:
           method: post
           path: todos
           cors: true
-          # authorizer: Auth
+          authorizer: Auth
           reqValidatorName: RequestBodyValidator
           documentation:
             summary: Create a new todo task
