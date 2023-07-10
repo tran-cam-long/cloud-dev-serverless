@@ -27,7 +27,7 @@ export class TodosAccess {
             IndexName: this.todosIndex,
             KeyConditionExpression: 'userId = :userId',
             ExpressionAttributeValues: {
-                'userId': userId
+                ':userId': userId
             }
         }).promise();
 
@@ -49,7 +49,7 @@ export class TodosAccess {
     }
 
     async updateTodoItem(todoId: string, userId: string, todoUpdate: TodoUpdate): Promise<TodoUpdate> {
-        logger.info(`Start updateTodoItem with todoId: ${todoId}, userId: ${userId}, todoUpdate: ${todoUpdate}`);
+        logger.info(`Start updateTodoItem with todoId: ${todoId}, userId: ${userId}, todoUpdate: ${JSON.stringify(todoUpdate)}`);
 
         await this.docClient.update({
             TableName: this.todosTable,
@@ -65,7 +65,8 @@ export class TodosAccess {
             },
             ExpressionAttributeNames: {
                 '#name': 'name'
-            }
+            },
+            ReturnValues: 'UPDATED_NEW'
         }).promise();
 
         logger.info(`End updateTodoItem with result: ${todoUpdate}`);
