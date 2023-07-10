@@ -59,6 +59,6 @@ export async function deleteTodo(todoId: string, userId: string): Promise<void>{
 
 // Implement attachment feature
 export async function createAttachmentPresignedUrl(todoId: string, userId: string): Promise<string> {
-  logger.info("Start createAttachmentPresignedUrl with userId: ", userId);
+  logger.info(`Start createAttachmentPresignedUrl with userId: ${userId}`);
   return attachmentUtils.getUploadUrl(todoId);
 }
