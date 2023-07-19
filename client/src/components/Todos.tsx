@@ -122,7 +122,7 @@ export class Todos extends React.PureComponent<TodosProps, TodosState> {
               color: 'teal',
               labelPosition: 'left',
               icon: 'add',
-              content: 'New task',
+              content: 'New todo',
               onClick: this.onTodoCreate
             }}
             fluid
