@@ -38,6 +38,7 @@ export default class App extends Component<AppProps, AppState> {
       <div>
         <Segment style={{ padding: '8em 0em' }} vertical>
           <Grid container stackable verticalAlign="middle">
+            <h1>Todos management app</h1>
             <Grid.Row>
               <Grid.Column width={16}>
                 <Router history={this.props.history}>

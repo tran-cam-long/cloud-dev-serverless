@@ -19,7 +19,7 @@ export class LogIn extends React.PureComponent<LogInProps, LogInState> {
         <h1>Please log in</h1>
 
         <Button onClick={this.onLogin} size="huge" color="olive">
-          Log in
+          Log in with Auth0
         </Button>
       </div>
     )
